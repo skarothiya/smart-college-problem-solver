@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart College Problem Solver - Instant Campus Resolution Platform</title>
+    <meta name="description" content="Report, track, and resolve college campus problems quickly with our smart AI-assisted classifier and admin tracking system.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <span>Smart<span class="gradient-text">Campus</span></span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="problems.html" class="nav-link">Browse Problems</a></li>
+                <li><a href="report.html" class="nav-link">Report Problem</a></li>
+                <li><a href="admin.html" class="nav-link">Admin Portal</a></li>
+                <li><a href="student-login.html" class="nav-link">Login / Sign In</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="report.html" class="btn btn-primary btn-sm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Report Issue
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge badge-pill">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Intelligent Campus Care Platform
+                        </span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Resolve Campus Issues <span class="gradient-text">Faster & Smarter</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Empowering college students to report, upvote, and track infrastructure & facility problems. Built with an intelligent auto-classifier to get maintenance teams working instantly.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="report.html" class="btn btn-primary btn-lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Report a Problem
+                        </a>
+                        <a href="problems.html" class="btn btn-secondary btn-lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            View Submitted Issues
+                        </a>
+                    </div>
+
+                    <div class="hero-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span> Client-Side AI Suggestions
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span> Real-Time Admin Tracker
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span> Upvote Priority
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-card-preview">
+                        <div class="preview-header">
+                            <div class="preview-user">
+                                <div class="preview-avatar">AR</div>
+                                <div class="preview-meta">
+                                    <h4>Alex Rivera</h4>
+                                    <span>Computer Lab 3B • 10 mins ago</span>
+                                </div>
+                            </div>
+                            <span class="badge badge-priority-high">High Priority</span>
+                        </div>
+
+                        <div class="preview-body">
+                            <h3>Wi-Fi & Router Disconnected in Lab 3B</h3>
+                            <p>High latency and frequent connection drops preventing students from accessing online coding lab servers.</p>
+                        </div>
+
+                        <div class="preview-tags">
+                            <span class="badge badge-pill">Wi-Fi / Network</span>
+                            <span class="badge badge-progress">In Progress</span>
+                        </div>
+
+                        <div class="preview-footer">
+                            <span>Admin assigned to Tech Team</span>
+                            <div class="upvote-btn-mock">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                                <span>34 Upvotes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-floating-badge">
+                        <div class="ai-sparkle">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div>
+                            <strong style="font-size: 0.85rem; display: block; color: #fff;">Smart AI Classifier</strong>
+                            <span style="font-size: 0.75rem; color: var(--text-secondary);">Auto-detects Category & Priority</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section" style="background: rgba(18, 24, 39, 0.4); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number gradient-text">1,450+</div>
+                    <div class="stat-label">Problems Resolved</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number gradient-text-alt">15 Mins</div>
+                    <div class="stat-label">Avg. Admin Response</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number gradient-text">98.5%</div>
+                    <div class="stat-label">Student Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number gradient-text-alt">10</div>
+                    <div class="stat-label">Campus Categories</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simplified Workflow</span>
+                <h2 class="section-title">How Smart Campus Works</h2>
+                <p class="section-desc">Report an issue in seconds and let our intelligent engine connect your report straight to college maintenance.</p>
+            </div>
+
+            <div class="how-it-works-grid">
+                <div class="step-card">
+                    <span class="step-number">01</span>
+                    <div class="step-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </div>
+                    <h3>1. Report Problem</h3>
+                    <p>Enter the problem title & description. Our intelligent client classifier automatically suggests the category & urgency priority.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">02</span>
+                    <div class="step-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                    </div>
+                    <h3>2. Community Upvote</h3>
+                    <p>Fellow students upvote urgent issues affecting multiple people, boosting priority on the college administration dashboard.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">03</span>
+                    <div class="step-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>3. Track & Resolve</h3>
+                    <p>Admins move status from Pending ➔ In Progress ➔ Solved. Track resolution updates live on your student dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Categories Section -->
+    <section class="section" style="background: rgba(18, 24, 39, 0.4); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Campus Coverage</span>
+                <h2 class="section-title">Explore Problem Categories</h2>
+                <p class="section-desc">Quickly filter and browse complaints across all primary campus facilities.</p>
+            </div>
+
+            <div class="categories-grid">
+                <a href="problems.html?category=Wi-Fi / Network" class="category-card">
+                    <div class="category-icon">🌐</div>
+                    <div class="category-title">Wi-Fi / Network</div>
+                    <span class="category-count">Router, Internet, VPN</span>
+                </a>
+
+                <a href="problems.html?category=Electrical" class="category-card">
+                    <div class="category-icon">⚡</div>
+                    <div class="category-title">Electrical</div>
+                    <span class="category-count">Lights, Fans, Sockets</span>
+                </a>
+
+                <a href="problems.html?category=Water" class="category-card">
+                    <div class="category-icon">💧</div>
+                    <div class="category-title">Water</div>
+                    <span class="category-count">Coolers, Taps, Restrooms</span>
+                </a>
+
+                <a href="problems.html?category=Cleanliness" class="category-card">
+                    <div class="category-icon">🧹</div>
+                    <div class="category-title">Cleanliness</div>
+                    <span class="category-count">Dustbins, Washrooms</span>
+                </a>
+
+                <a href="problems.html?category=Classroom" class="category-card">
+                    <div class="category-icon">🏫</div>
+                    <div class="category-title">Classroom</div>
+                    <span class="category-count">Projectors, Benches, Podium</span>
+                </a>
+
+                <a href="problems.html?category=Library" class="category-card">
+                    <div class="category-icon">📚</div>
+                    <div class="category-title">Library</div>
+                    <span class="category-count">AC, Silence, Study Pods</span>
+                </a>
+
+                <a href="problems.html?category=Computer / Lab" class="category-card">
+                    <div class="category-icon">💻</div>
+                    <div class="category-title">Computer / Lab</div>
+                    <span class="category-count">PCs, Software, Hardware</span>
+                </a>
+
+                <a href="problems.html?category=Canteen" class="category-card">
+                    <div class="category-icon">🍔</div>
+                    <div class="category-title">Canteen</div>
+                    <span class="category-count">Food, Hygiene, Seating</span>
+                </a>
+
+                <a href="problems.html?category=Transport" class="category-card">
+                    <div class="category-icon">🚌</div>
+                    <div class="category-title">Transport</div>
+                    <span class="category-count">Buses, Parking, Passes</span>
+                </a>
+
+                <a href="problems.html?category=Other" class="category-card">
+                    <div class="category-icon">📌</div>
+                    <div class="category-title">Other</div>
+                    <span class="category-count">General Campus Support</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Use This Platform Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Key Features</span>
+                <h2 class="section-title">Built for Modern Campus Life</h2>
+                <p class="section-desc">Designed with college students and administrators in mind for 100% transparency.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-box">🤖</div>
+                    <div class="feature-content">
+                        <h3>Intelligent Client Classifier</h3>
+                        <p>Our rule-based NLP algorithm analyzes problem descriptions on-the-fly and suggests the accurate category and urgency level instantly.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box">👍</div>
+                    <div class="feature-content">
+                        <h3>Democratic Upvote Engine</h3>
+                        <p>Allow fellow students to upvote shared issues. High-upvote complaints gain top priority on the maintenance dashboard.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box">📊</div>
+                    <div class="feature-content">
+                        <h3>Admin Analytics Dashboard</h3>
+                        <p>Campus administrators get a real-time command center with breakdown stats (Pending, In Progress, Solved) and priority controls.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box">🔔</div>
+                    <div class="feature-content">
+                        <h3>Real-Time Status Tracking</h3>
+                        <p>No more guessing whether a complaint was received. Track status badges live from pending review to completed resolution.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="cta-banner">
+                <h2>Have a Problem on Campus?</h2>
+                <p>Report it now in under 60 seconds and help make campus life better for everyone.</p>
+                <div class="cta-buttons">
+                    <a href="report.html" class="btn btn-primary btn-lg">Report a Problem Now</a>
+                    <a href="student-login.html" class="btn btn-secondary btn-lg">Student Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-brand">
+                        <div class="brand-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <span>Smart<span class="gradient-text">Campus</span></span>
+                    </a>
+                    <p>The modern, intelligent problem reporting and resolution engine for college campuses.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="problems.html">Browse Problems</a></li>
+                        <li><a href="report.html">Report Issue</a></li>
+                        <li><a href="student-login.html">Login</a></li>
+                        <li><a href="student-register.html">Register</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Admin & Staff</h4>
+                    <ul class="footer-links">
+                        <li><a href="admin.html">Admin Portal</a></li>
+                        <li><a href="admin-login.html">Admin Sign In</a></li>
+                        <li><a href="admin.html#stats">Statistics Overview</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Hackathon</h4>
+                    <ul class="footer-links">
+                        <li><span class="hackathon-badge">⚡ 24-Hour Prototype</span></li>
+                        <li style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.85rem;">Vanilla JS • CSS3 • HTML5</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Smart College Problem Solver. All rights reserved.</p>
+                <p>Designed for College Hackathon</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-env.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase-connection-test.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

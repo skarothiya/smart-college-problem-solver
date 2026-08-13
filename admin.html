@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Smart College Problem Solver</title>
+    <meta name="description" content="Campus administration command center for resolving college infrastructure complaints.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .admin-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .table-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .admin-table th {
+            padding: 1rem 0.85rem;
+            font-size: 0.825rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .admin-table td {
+            padding: 1rem 0.85rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .admin-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .admin-filter-bar {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr auto;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 1200px) {
+            .admin-stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .admin-filter-bar {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .admin-filter-bar {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <span>Smart<span class="gradient-text">Campus Admin</span></span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="problems.html" class="nav-link">Browse Problems</a></li>
+                <li><a href="admin.html" class="nav-link active">Admin Portal</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+        
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <span class="badge badge-pill" style="margin-bottom: 0.5rem; background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">
+                    ⚙️ Administrator Control Center
+                </span>
+                <h1 class="section-title" style="margin-bottom: 0.25rem;">Campus Complaint Management</h1>
+                <p class="section-desc" style="font-size: 0.95rem;">Track, prioritize urgency, and update problem lifecycle status live.</p>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem;">
+                <a href="problems.html" class="btn btn-secondary btn-sm">View Student View</a>
+            </div>
+        </div>
+
+        <!-- Top Statistics Cards (5 Metrics) -->
+        <div class="admin-stats-grid">
+            <div class="stat-card">
+                <div class="stat-number gradient-text" id="adminStatTotal">0</div>
+                <div class="stat-label">Total Complaints</div>
+            </div>
+
+            <div class="stat-card" style="border-top-color: var(--status-pending);">
+                <div class="stat-number" style="color: var(--status-pending);" id="adminStatPending">0</div>
+                <div class="stat-label">Pending Review</div>
+            </div>
+
+            <div class="stat-card" style="border-top-color: var(--status-progress);">
+                <div class="stat-number" style="color: var(--status-progress);" id="adminStatProgress">0</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+
+            <div class="stat-card" style="border-top-color: var(--status-solved);">
+                <div class="stat-number" style="color: var(--status-solved);" id="adminStatSolved">0</div>
+                <div class="stat-label">Solved & Closed</div>
+            </div>
+
+            <div class="stat-card" style="border-top-color: var(--priority-high);">
+                <div class="stat-number" style="color: var(--priority-high);" id="adminStatHigh">0</div>
+                <div class="stat-label">High Priority</div>
+            </div>
+        </div>
+
+        <!-- Table Panel -->
+        <div class="table-panel">
+            
+            <!-- Filters Bar -->
+            <div class="admin-filter-bar">
+                <!-- Search Input -->
+                <div style="position: relative;">
+                    <input type="text" id="adminSearchInput" class="form-input" placeholder="Search by ID, title, location or student..." style="padding-left: 2.5rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+
+                <!-- Category Select -->
+                <div>
+                    <select id="adminFilterCategory" class="form-select">
+                        <option value="ALL">All Categories</option>
+                        <option value="Wi-Fi / Network">Wi-Fi / Network</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Water">Water</option>
+                        <option value="Cleanliness">Cleanliness</option>
+                        <option value="Classroom">Classroom</option>
+                        <option value="Library">Library</option>
+                        <option value="Computer / Lab">Computer / Lab</option>
+                        <option value="Canteen">Canteen</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Status Select -->
+                <div>
+                    <select id="adminFilterStatus" class="form-select">
+                        <option value="ALL">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Solved">Solved</option>
+                    </select>
+                </div>
+
+                <!-- Priority Select -->
+                <div>
+                    <select id="adminFilterPriority" class="form-select">
+                        <option value="ALL">All Priorities</option>
+                        <option value="High">High Priority</option>
+                        <option value="Medium">Medium Priority</option>
+                        <option value="Low">Low Priority</option>
+                    </select>
+                </div>
+
+                <!-- Reset Button -->
+                <div>
+                    <button class="btn btn-secondary" onclick="AdminDashboardManager.resetFilters()">
+                        Reset
+                    </button>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);">
+                <span id="adminCountText" style="font-size: 0.875rem; color: var(--text-muted);">Loading complaints...</span>
+            </div>
+
+            <!-- Responsive Table -->
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Complaint ID</th>
+                            <th>Problem Title & Student</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Submitted Date</th>
+                            <th>Status Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody">
+                        <!-- Dynamically Rendered by js/admin.js -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Smart College Problem Solver. Admin Command Center.</p>
+                <p>24-Hour College Hackathon Prototype</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-env.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

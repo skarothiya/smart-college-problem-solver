@@ -1,0 +1,7 @@
+# Supabase credentials — copy from js/supabase-env.example.js
+js/supabase-env.js
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
