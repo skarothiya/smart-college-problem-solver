@@ -1,3 +1,4 @@
 /* Example configuration template for local development */
-window.SUPABASE_URL = 'YOUR_SUPABASE_URL';
-window.SUPABASE_PUBLISHABLE_KEY = 'YOUR_SUPABASE_PUBLISHABLE_KEY';
+// Remove 'export' keyword
+window.SUPABASE_URL = "https://your-project-id.supabase.co";
+window.SUPABASE_PUBLISHABLE_KEY = "your-anon-key-here";
