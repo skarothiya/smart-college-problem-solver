@@ -24,8 +24,8 @@
 (function (global) {
     'use strict';
 
-    const SUPABASE_URL = global.SUPABASE_URL || '';
-    const SUPABASE_PUBLISHABLE_KEY = global.SUPABASE_PUBLISHABLE_KEY || '';
+    const SUPABASE_URL = global.SUPABASE_URL || 'https://texsoapbhgjnbkrsivqp.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = global.SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_UC90l9fWw7f42SSd3KMkhQ_3jphA5Ro';
 
     function createClient() {
         if (typeof global.supabase === 'undefined' || typeof global.supabase.createClient !== 'function') {
